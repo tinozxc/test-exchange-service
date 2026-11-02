@@ -1,8 +1,6 @@
 package pe.test.exchange.domain.model;
 
-import jakarta.persistence.*;
 import lombok.Getter;
-import pe.test.exchange.domain.exception.DomainException;
 import pe.test.exchange.domain.exception.InvalidCurrencyException;
 
 import java.math.BigDecimal;
@@ -25,7 +23,6 @@ public class Conversion {
 
     public Conversion(BigDecimal amount, String sourceCurrency, String targetCurrency, BigDecimal exchangeRate) {
         validateCurrencies(sourceCurrency, targetCurrency);
-        validateAmount(amount);
         this.id = null;
         this.amount = amount;
         this.sourceCurrency = sourceCurrency;
@@ -53,15 +50,7 @@ public class Conversion {
         }
     }
 
-    public static void validateAmount(BigDecimal amount) {
-        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new DomainException("El monto que vamos a convertir tiene que ser mayor a cero");
-        }
-        if (amount.stripTrailingZeros().scale() > 4 || amount.compareTo(new BigDecimal("1000000000000000")) >= 0) {
-            throw new DomainException("El monto ingresado supera la precisión numerica permitida que es 15 enteros y 4 decimales");
-        }
 
-    }
 
 
 }
