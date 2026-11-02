@@ -23,7 +23,7 @@ public class ExchangeRateApiAdapter implements ExchangeRateProvider {
     }
 
     @Override
-    public BigDecimal getReate(String sourceCurrency, String targetCurrency) {
+    public BigDecimal getRate(String sourceCurrency, String targetCurrency) {
         ExchangeRateApiResponse response = callApi(sourceCurrency);
 
         if (response == null || !"success".equals(response.result())) {

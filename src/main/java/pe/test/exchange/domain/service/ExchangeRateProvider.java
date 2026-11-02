@@ -9,5 +9,5 @@ public interface  ExchangeRateProvider {
     * @throws pe.test.exchange.domain.exception.InvalidCurrencyException
     */
 
-    BigDecimal getReate(String sourceCurrency , String targetCurrency);
+    BigDecimal getRate(String sourceCurrency , String targetCurrency);
 }
