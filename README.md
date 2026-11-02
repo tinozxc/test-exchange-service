@@ -24,12 +24,12 @@ EXCHANGE_API_KEY=tu_api_key
 
 ```bash
 ./mvnw spring-boot:run        # Windows: .\mvnw.cmd spring-boot:run
-./mvnw clean verify           # tests (no requieren .env)
+./mvnw clean verify           # tests (no requieren .env) opcional
 ```
 
 La app levanta en `http://localhost:8080`. También se puede definir `EXCHANGE_API_KEY` como variable de entorno en lugar de usar `.env`.
 
-## API
+## API --
 
 ### POST /api/conversion
 
@@ -56,7 +56,7 @@ La app levanta en `http://localhost:8080`. También se puede definir `EXCHANGE_A
 ```json
 {
   "status": 400,
-  "message": "Source and target currency must be different",
+  "message": "La moneda de origen y la de destino deben ser diferentes",
   "timestamp": "2026-11-02T08:15:30.123"
 }
 ```
